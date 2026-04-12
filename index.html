@@ -59,9 +59,13 @@
   }
 
   .logo {
-    display: flex; align-items: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 4px;
   }
-  .logo img { height: 38px; width: auto; }
+  .logo .logo-accent { color: var(--accent); }
 
   nav { display: flex; align-items: center; gap: 36px; }
   nav a {
@@ -671,7 +675,7 @@
     display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
     margin-bottom: 48px;
   }
-  .footer-brand .logo { margin-bottom: 14px; }
+  .footer-brand .logo { font-size: 1.1rem; margin-bottom: 14px; }
   .footer-brand p { font-size: 0.85rem; color: var(--text3); line-height: 1.65; font-weight: 300; max-width: 240px; }
   .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 18px; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -763,7 +767,7 @@
 
 <!-- HEADER -->
 <header>
-  <div class="logo"><img src="logo.png" alt="Fitness Lógico"></div>
+  <div class="logo">Fitness<span class="logo-accent">Lógico</span></div>
   <nav>
     <a href="#metodo">Método</a>
     <a href="#como-funciona">Cómo funciona</a>
@@ -1185,7 +1189,7 @@
     <p>Trabajo con un número reducido de asesorados para garantizar seguimiento real y ajustes de calidad. Cuando los cupos se llenan, no hay nuevos ingresos hasta el siguiente periodo.</p>
     <div class="cta-buttons">
       <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa." class="btn-primary" style="font-size:0.88rem;padding:15px 28px;">Agendar por WhatsApp</a>
-      <a href="mailto:contacto.edufitlogico@gmail.com" class="btn-secondary" style="font-size:0.88rem;padding:15px 28px;">Enviar un email</a>
+      <a href="/cdn-cgi/l/email-protection#03606c6d776260776c2d666776656a776f6c646a606c43646e626a6f2d606c6e" class="btn-secondary" style="font-size:0.88rem;padding:15px 28px;">Enviar un email</a>
     </div>
     <div class="cta-trust">Te respondo personalmente para ver si este sistema es para ti.</div>
   </div>
@@ -1195,7 +1199,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo"><img src="logo.png" alt="Fitness Lógico"></div>
+      <div class="logo">Fitness<span class="logo-accent">Lógico</span></div>
       <p>Asesoría estratégica de entrenamiento y nutrición para hombres ocupados. Sin métodos genéricos. Sin atajos.</p>
     </div>
     <div class="footer-col">
@@ -1211,7 +1215,7 @@
       <h4>Contacto</h4>
       <ul class="footer-links">
         <li><a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa.">WhatsApp</a></li>
-        <li><a href="mailto:contacto.edufitlogico@gmail.com">Email</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#482b27263c292b3c27662d2c3d2e213c24272f212b27082f25292124662b2725">Email</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1236,7 +1240,7 @@
   <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa.">Agendar evaluación por WhatsApp</a>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1261,10 +1265,4 @@
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.benefit-item, .method-pillar, .step, .include-item, .forwhom-col').fo
+        e.target
