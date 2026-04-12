@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Lógico | Asesoría Online de Transformación Física</title>
+<meta name="description" content="Asesoría online de entrenamiento y nutrición para hombres ocupados. Estrategia personalizada, seguimiento real, resultados sostenibles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0D12;
+    --surface: #11161D;
+    --surface2: #161D26;
+    --surface3: #1C2530;
+    --text: #F5F7FA;
+    --text2: #B7C0CC;
+    --text3: #7A8899;
+    --accent: #0F62FE;
+    --accent-hover: #0B4FCC;
+    --accent-dim: rgba(15,98,254,0.12);
+    --accent-dim2: rgba(15,98,254,0.07);
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.04);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ─── HEADER ─────────────────────────────── */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,13,18,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border2);
+    transition: background 0.3s;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo span { color: var(--accent); }
+
+  nav { display: flex; align-items: center; gap: 36px; }
+  nav a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text2);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--text); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text2);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+  .nav-cta { display: none; }
+
+  /* ─── HERO ───────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 5% 80px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(15,98,254,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(15,98,254,0.25);
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+    color: var(--text);
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 34px;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-bullets {
+    list-style: none;
+    margin-bottom: 40px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .hero-bullets li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.92rem; color: var(--text2); font-weight: 400;
+  }
+  .hero-bullets li::before {
+    content: '';
+    width: 18px; height: 18px; flex-shrink: 0;
+    background: var(--accent-dim);
+    border: 1px solid rgba(15,98,254,0.3);
+    border-radius: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%230F62FE' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    display: flex; justify-content: center;
+  }
+
+  .hero-img-frame {
+    position: relative;
+    width: 100%; max-width: 440px;
+  }
+  .hero-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(15,98,254,0.3) 0%, transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-img-frame img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    filter: contrast(1.04) brightness(0.96);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 28px; left: -20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+  .hero-badge span {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .hero-badge small {
+    font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ─── PROBLEMA ────────────────────────────── */
+  .problem {
+    background: var(--surface);
+    padding: 100px 5%;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .problem-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px; background: var(--accent);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .problem-text p {
+    color: var(--text2); font-size: 1rem; line-height: 1.75; margin-bottom: 16px; font-weight: 300;
+  }
+
+  .problem-points {
+    margin-top: 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .problem-point {
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .problem-point-num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    color: var(--accent);
+  }
+  .problem-point p { font-size: 0.9rem; color: var(--text2); font-weight: 300; line-height: 1.5; }
+
+  .problem-img {
+    position: relative;
+  }
+  .problem-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    filter: contrast(1.03) brightness(0.95);
+  }
+  .problem-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(transparent, rgba(17,22,29,0.5));
+    border-radius: 0 0 4px 4px;
+  }
+  .problem-quote {
+    position: absolute;
+    bottom: 24px; right: -16px;
+    background: var(--accent);
+    padding: 16px 20px;
+    border-radius: 4px;
+    z-index: 2;
+    max-width: 200px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem;
+    line-height: 1.3; color: #fff;
+  }
+
+  /* ─── BENEFICIOS ──────────────────────────── */
+  .benefits {
+    padding: 100px 5%;
+  }
+  .benefits-inner { max-width: 1100px; margin: 0 auto; }
+  .benefits-header { text-align: center; margin-bottom: 60px; }
+  .benefits-header .section-eyebrow { justify-content: center; }
+  .benefits-header .section-eyebrow::before { display: none; }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border2);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .benefit-item {
+    background: var(--surface);
+    padding: 36px 30px;
+    transition: background 0.2s;
+  }
+  .benefit-item:hover { background: var(--surface2); }
+  .benefit-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.1em;
+    margin-bottom: 18px; display: block;
+  }
+  .benefit-item h3 {
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .benefit-item p { font-size: 0.88rem; color: var(--text2); line-height: 1.65; font-weight: 300; }
+
+  /* ─── MÉTODO ──────────────────────────────── */
+  .method {
+    background: var(--surface);
+    padding: 100px 5%;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .method-inner { max-width: 1100px; margin: 0 auto; }
+  .method-header { margin-bottom: 60px; }
+
+  .method-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: var(--border2);
+  }
+  .method-pillar {
+    background: var(--bg);
+    padding: 40px 28px;
+    position: relative;
+  }
+  .method-pillar::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s;
+  }
+  .method-pillar:hover::before { background: var(--accent); }
+  .method-icon {
+    width: 44px; height: 44px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(15,98,254,0.2);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  .method-num {
+    position: absolute; top: 28px; right: 28px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem; font-weight: 800;
+    color: var(--border); line-height: 1;
+  }
+  .method-pillar h3 {
+    font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .method-pillar p { font-size: 0.85rem; color: var(--text2); line-height: 1.65; font-weight: 300; }
+
+  /* ─── CÓMO FUNCIONA ───────────────────────── */
+  .how {
+    padding: 100px 5%;
+  }
+  .how-inner { max-width: 900px; margin: 0 auto; }
+  .how-header { margin-bottom: 60px; }
+
+  .steps {
+    display: flex; flex-direction: column; gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute; left: 28px; top: 0; bottom: 0;
+    width: 1px; background: var(--border2);
+  }
+
+  .step {
+    display: flex; gap: 36px; align-items: flex-start;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border2);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 56px; height: 56px; flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800;
+    color: var(--accent);
+    position: relative; z-index: 1;
+  }
+  .step-content h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.02em; }
+  .step-content p { font-size: 0.92rem; color: var(--text2); line-height: 1.7; font-weight: 300; }
+
+  .steps-close {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+  .steps-close p { font-size: 0.95rem; color: var(--text2); font-style: italic; font-weight: 300; }
+
+  /* ─── PARA QUIÉN ──────────────────────────── */
+  .forwhom {
+    background: var(--surface);
+    padding: 100px 5%;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .forwhom-inner { max-width: 1100px; margin: 0 auto; }
+  .forwhom-header { text-align: center; margin-bottom: 60px; }
+  .forwhom-header .section-eyebrow { justify-content: center; }
+  .forwhom-header .section-eyebrow::before { display: none; }
+
+  .forwhom-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background: var(--border2);
+  }
+  .forwhom-col {
+    background: var(--bg); padding: 44px 40px;
+  }
+  .forwhom-col h3 {
+    font-size: 1rem; font-weight: 700; letter-spacing: 0.03em;
+    text-transform: uppercase; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tag-yes { color: #2ECC71; }
+  .tag-no { color: #E74C3C; }
+  .forwhom-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .forwhom-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 0.92rem; color: var(--text2); line-height: 1.55; font-weight: 300;
+  }
+  .forwhom-list li::before {
+    content: '';
+    width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
+    background-repeat: no-repeat; background-position: center; background-size: 12px;
+  }
+  .forwhom-col.yes .forwhom-list li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%232ECC71' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .forwhom-col.no .forwhom-list li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23E74C3C' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+
+  /* ─── QUÉ INCLUYE ─────────────────────────── */
+  .includes {
+    padding: 100px 5%;
+  }
+  .includes-inner { max-width: 1100px; margin: 0 auto; }
+  .includes-header { margin-bottom: 60px; }
+
+  .includes-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--border2);
+    border: 1px solid var(--border2); border-radius: 4px; overflow: hidden;
+  }
+  .include-item {
+    background: var(--surface);
+    padding: 24px 28px;
+    display: flex; gap: 16px; align-items: flex-start;
+    transition: background 0.2s;
+  }
+  .include-item:hover { background: var(--surface2); }
+  .include-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0; margin-top: 6px;
+  }
+  .include-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .include-item p { font-size: 0.82rem; color: var(--text2); line-height: 1.5; font-weight: 300; }
+
+  /* ─── AUTORIDAD ───────────────────────────── */
+  .authority {
+    background: var(--surface);
+    padding: 100px 5%;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .authority-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  .authority-img {
+    position: relative;
+  }
+  .authority-img img {
+    width: 100%; height: 480px;
+    object-fit: cover; object-position: top center;
+    border-radius: 4px; filter: contrast(1.03) brightness(0.95);
+  }
+
+  .testimonials-placeholder {
+    margin-top: 36px;
+    background: var(--surface2);
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 28px;
+    text-align: center;
+  }
+  .testimonials-placeholder p {
+    font-size: 0.82rem; color: var(--text3); font-style: italic; line-height: 1.6;
+  }
+  .testimonials-placeholder strong { color: var(--text2); font-style: normal; }
+
+  .authority-bio h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800;
+    letter-spacing: -0.03em; margin-bottom: 6px;
+  }
+  .authority-role {
+    font-size: 0.82rem; color: var(--accent); letter-spacing: 0.06em;
+    text-transform: uppercase; font-weight: 500; margin-bottom: 24px;
+  }
+  .authority-bio p {
+    font-size: 0.95rem; color: var(--text2); line-height: 1.75; font-weight: 300; margin-bottom: 16px;
+  }
+
+  .authority-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border2); margin-top: 36px;
+    border: 1px solid var(--border2); border-radius: 4px; overflow: hidden;
+  }
+  .stat {
+    background: var(--bg); padding: 20px 16px; text-align: center;
+  }
+  .stat strong {
+    display: block; font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800;
+    color: var(--accent); line-height: 1; margin-bottom: 4px;
+  }
+  .stat span { font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* ─── FAQ ────────────────────────────────── */
+  .faq {
+    padding: 100px 5%;
+  }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-header { margin-bottom: 50px; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--border2);
+  }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0; text-align: left;
+    color: var(--text); font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: -0.01em; line-height: 1.4;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-icon {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border: 1px solid var(--border); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 1rem; font-weight: 300;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    overflow: hidden; max-height: 0;
+    transition: max-height 0.35s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a p {
+    font-size: 0.9rem; color: var(--text2); line-height: 1.75; font-weight: 300;
+    padding-bottom: 22px;
+  }
+
+  /* ─── CTA FINAL ───────────────────────────── */
+  .cta-final {
+    padding: 100px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,98,254,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-final-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+  .cta-final h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+    letter-spacing: -0.03em; margin-bottom: 18px;
+  }
+  .cta-final p {
+    font-size: 1rem; color: var(--text2); line-height: 1.7; font-weight: 300; margin-bottom: 36px;
+  }
+  .cta-buttons {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .cta-trust {
+    margin-top: 28px; font-size: 0.8rem; color: var(--text3);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .cta-trust::before, .cta-trust::after {
+    content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--border2);
+  }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border2);
+    padding: 60px 5% 32px;
+  }
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .logo { font-size: 1.1rem; margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text3); line-height: 1.65; font-weight: 300; max-width: 240px; }
+  .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 18px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 0.87rem; color: var(--text2); transition: color 0.2s; font-weight: 300; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    padding-top: 24px; border-top: 1px solid var(--border2);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: var(--text3); }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a { font-size: 0.78rem; color: var(--text3); transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--text2); }
+
+  /* ─── STICKY MOBILE CTA ───────────────────── */
+  .sticky-mobile {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+    padding: 12px 16px 16px;
+    background: rgba(10,13,18,0.97);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+  .sticky-mobile a {
+    display: block; text-align: center;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.88rem; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 14px; border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .sticky-mobile a:hover { background: var(--accent-hover); }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 1024px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .method-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 0 20px; }
+    nav { display: none; }
+    .nav-cta { display: block; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 60px;
+      gap: 40px;
+    }
+    .hero-img-wrap { order: -1; }
+    .hero-img-frame img { height: 380px; }
+    .hero-badge { left: 10px; bottom: 16px; }
+
+    .problem-grid { grid-template-columns: 1fr; gap: 50px; }
+    .problem-img { order: -1; }
+    .problem-img img { height: 320px; }
+    .problem-quote { right: 0; bottom: 16px; }
+
+    .benefits-grid { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; }
+    .forwhom-grid { grid-template-columns: 1fr; }
+    .includes-grid { grid-template-columns: 1fr; }
+
+    .authority-inner { grid-template-columns: 1fr; gap: 40px; }
+    .authority-img img { height: 320px; }
+    .authority-stats { grid-template-columns: repeat(3, 1fr); }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    .sticky-mobile { display: block; }
+    .cta-final { padding-bottom: 120px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 2rem; }
+    .section-title { font-size: 1.7rem; }
+    .hero-ctas { flex-direction: column; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Fitness<span>Lógico</span></div>
+  <nav>
+    <a href="#metodo">Método</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#incluye">Qué incluye</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa." class="btn-primary">Agendar evaluación</a>
+  </nav>
+  <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa." class="btn-primary nav-cta" style="font-size:0.76rem;padding:9px 16px;">Agendar</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Asesoría online · Transformación real</div>
+    <h1>Entrena con <em>estructura.</em><br>Come con lógica.<br>Cambia tu físico<br>sin vivir para el gym.</h1>
+    <p class="hero-sub">Asesoría online personalizada para hombres con agendas exigentes. Plan adaptado a tu vida real, seguimiento directo y ajustes continuos. Sin dietas extremas ni métodos genéricos.</p>
+    <ul class="hero-bullets">
+      <li>Plan diseñado según tu rutina, horario y contexto real</li>
+      <li>Seguimiento constante y ajustes basados en tu progreso</li>
+      <li>Entrenamiento y nutrición inteligente — sin extremos</li>
+    </ul>
+    <div class="hero-ctas">
+      <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa." class="btn-primary">Agendar evaluación por WhatsApp</a>
+      <a href="#como-funciona" class="btn-secondary">Ver cómo funciona</a>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-img-frame">
+      <img src="lv_0_20260330122702.jpg" alt="Eduardo Fitness Lógico — entrenador personal online">
+      <div class="hero-badge">
+        <span>100%</span>
+        <small>Personalizado</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <div class="problem-grid">
+    <div class="problem-text">
+      <div class="section-eyebrow">El problema real</div>
+      <h2 class="section-title">No necesitas más motivación.<br>Necesitas una estrategia que encaje con tu vida.</h2>
+      <p>La mayoría de planes de entrenamiento y nutrición están diseñados para atletas o influencers — no para hombres con trabajo exigente, turnos rotativos o poco tiempo disponible.</p>
+      <p>El resultado es siempre el mismo: empiezas bien, a las semanas el sistema se rompe, y terminas sintiéndote peor que antes de intentarlo.</p>
+      <div class="problem-points">
+        <div class="problem-point">
+          <div class="problem-point-num">01</div>
+          <p>Rutinas copiadas de atletas que no consideran tu contexto, tu fatiga real ni tu disponibilidad horaria</p>
+        </div>
+        <div class="problem-point">
+          <div class="problem-point-num">02</div>
+          <p>Dietas imposibles de sostener en la vida real, que terminan en abandono y frustración</p>
+        </div>
+        <div class="problem-point">
+          <div class="problem-point-num">03</div>
+          <p>Información en exceso, sin dirección clara — sabes qué hacer pero no cómo aplicarlo a tu situación</p>
+        </div>
+        <div class="problem-point">
+          <div class="problem-point-num">04</div>
+          <p>Sin seguimiento ni ajustes, el plan se vuelve obsoleto en semanas y los resultados no llegan</p>
+        </div>
+      </div>
+    </div>
+    <div class="problem-img">
+      <img src="IMG_20260330_124842_333.webp" alt="Eduardo analizando planes de entrenamiento">
+      <div class="problem-quote">Analizamos tu vida real. El plan encaja contigo, no al revés.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-header">
+      <div class="section-eyebrow">Por qué funciona</div>
+      <h2 class="section-title">Beneficios reales, no promesas vacías.</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <span class="benefit-num">01</span>
+        <h3>Entrenas con estructura</h3>
+        <p>Cada sesión tiene un propósito claro. Sin improvisar, sin adivinar qué hacer. Un plan coherente con tu objetivo real.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">02</span>
+        <h3>Optimizas tu tiempo</h3>
+        <p>Entrenamientos diseñados para rendir en el tiempo que tienes disponible. La eficiencia importa más que la cantidad de horas.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">03</span>
+        <h3>Comes con flexibilidad</h3>
+        <p>Nutrición adaptada a tu vida, no al revés. Sin alimentos prohibidos, sin dietas de castigo. Sostenible a largo plazo.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">04</span>
+        <h3>Progresas con ajustes reales</h3>
+        <p>No es un plan estático. Revisamos, corregimos y ajustamos según tu progreso real y los cambios en tu contexto.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">05</span>
+        <h3>Entiendes qué hacer y por qué</h3>
+        <p>No solo sigues órdenes. Aprendes la lógica detrás de cada decisión, para que con el tiempo tomes mejores decisiones por tu cuenta.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">06</span>
+        <h3>Resultados que se sostienen</h3>
+        <p>Cambios basados en hábitos reales, no en sprints insostenibles. Lo que construyes aquí dura porque está anclado en tu vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="method" id="metodo">
+  <div class="method-inner">
+    <div class="method-header">
+      <div class="section-eyebrow">Cómo trabajo</div>
+      <h2 class="section-title">Cuatro pilares. Un sistema.</h2>
+    </div>
+    <div class="method-grid">
+      <div class="method-pillar">
+        <div class="method-num">01</div>
+        <div class="method-icon">🏋️</div>
+        <h3>Entrenamiento inteligente</h3>
+        <p>Diseñado para tu nivel, tu tiempo y tu contexto. Progresión real, cargas bien manejadas, sin ego ni riesgo innecesario.</p>
+      </div>
+      <div class="method-pillar">
+        <div class="method-num">02</div>
+        <div class="method-icon">🥗</div>
+        <h3>Nutrición flexible</h3>
+        <p>Estrategia calórica clara con opciones reales. Comes bien sin obsesionarte, con margen para vivir sin culpa.</p>
+      </div>
+      <div class="method-pillar">
+        <div class="method-num">03</div>
+        <div class="method-icon">🧠</div>
+        <h3>Adherencia y mentalidad</h3>
+        <p>El mejor plan no sirve si no lo sigues. Trabajamos en los hábitos, la consistencia y la mentalidad aplicada al proceso.</p>
+      </div>
+      <div class="method-pillar">
+        <div class="method-num">04</div>
+        <div class="method-icon">📈</div>
+        <h3>Seguimiento y optimización</h3>
+        <p>Revisamos tu progreso con frecuencia, ajustamos variables, corregimos lo que no funciona. Sin estancamientos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="how" id="como-funciona">
+  <div class="how-inner">
+    <div class="how-header">
+      <div class="section-eyebrow">El proceso</div>
+      <h2 class="section-title">Tres pasos. Sin complejidad innecesaria.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Evaluación inicial</h3>
+          <p>Analizamos tu punto de partida completo: horarios, historial físico, hábitos alimenticios, objetivos reales y limitaciones concretas. Entendemos tu contexto antes de diseñar cualquier cosa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Diseño estratégico</h3>
+          <p>Construimos un plan de entrenamiento y nutrición adaptado específicamente a tu vida real, no a un modelo idealizado. Cada variable está pensada para que el sistema funcione con tu agenda.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Seguimiento y ajustes</h3>
+          <p>Acompañamos tu proceso de forma continua. Corregimos lo que no funciona, optimizamos lo que sí, y ajustamos cuando tu contexto cambia. El plan evoluciona contigo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="steps-close">
+      <p>Esto no es un sprint. Es un proceso serio, sostenible y pensado para durar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN ES -->
+<section class="forwhom">
+  <div class="forwhom-inner">
+    <div class="forwhom-header">
+      <div class="section-eyebrow">Filtro de entrada</div>
+      <h2 class="section-title">Seamos directos desde el inicio.</h2>
+    </div>
+    <div class="forwhom-grid">
+      <div class="forwhom-col yes">
+        <h3><span class="tag-yes">✓</span> &nbsp;Sí es para ti si...</h3>
+        <ul class="forwhom-list">
+          <li>Quieres resultados reales y que se sostengan en el tiempo</li>
+          <li>Tienes una vida exigente y necesitas un sistema que encaje con ella</li>
+          <li>Valoras una estrategia personalizada por sobre métodos genéricos</li>
+          <li>Estás dispuesto a comprometerte con un proceso serio y consistente</li>
+          <li>Buscas entender qué haces y por qué, no solo ejecutar órdenes</li>
+        </ul>
+      </div>
+      <div class="forwhom-col no">
+        <h3><span class="tag-no">✗</span> &nbsp;No es para ti si...</h3>
+        <ul class="forwhom-list">
+          <li>Buscas resultados sin proceso ni compromiso real con el seguimiento</li>
+          <li>Quieres soluciones rápidas o atajos que no tienen base real</li>
+          <li>No estás dispuesto a seguir un plan estructurado y consistente</li>
+          <li>Prefieres improvisar, saltar de método en método o vivir de extremos</li>
+          <li>Esperas ver resultados en días sin ajustar hábitos fundamentales</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section class="includes" id="incluye">
+  <div class="includes-inner">
+    <div class="includes-header">
+      <div class="section-eyebrow">El paquete completo</div>
+      <h2 class="section-title">Todo lo que necesitas para progresar de verdad.</h2>
+    </div>
+    <div class="includes-grid">
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Evaluación inicial completa</h4>
+          <p>Análisis de punto de partida, historial, contexto y objetivos reales.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Planificación de entrenamiento personalizada</h4>
+          <p>Rutina diseñada para tu nivel, tu tiempo y tu equipamiento disponible.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Guía nutricional flexible y adaptada</h4>
+          <p>Estrategia calórica y de macros ajustada a tu vida real, sin extremos.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Ajustes periódicos según progreso</h4>
+          <p>Revisamos y actualizamos el plan en función de cómo avanzas.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Seguimiento directo y constante</h4>
+          <p>Acompañamiento real, no un PDF enviado y olvidado.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Soporte por WhatsApp</h4>
+          <p>Canal directo para preguntas, dudas y seguimiento continuo.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Estrategia adaptada a horarios complejos</h4>
+          <p>Diseñada para turnos rotativos, horarios cambiantes y agendas exigentes.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Orientación de suplementación si aplica</h4>
+          <p>Solo lo que tiene sentido para tu caso, sin ventas innecesarias.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Revisión de progreso y métricas</h4>
+          <p>Control periódico para ver qué funciona, qué no, y por qué.</p>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-dot"></div>
+        <div>
+          <h4>Educación para la adherencia</h4>
+          <p>Aprendes la lógica del proceso para sostenerlo más allá de la asesoría.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORIDAD -->
+<section class="authority">
+  <div class="authority-inner">
+    <div>
+      <div class="authority-img">
+        <img src="lv_0_20260330124137.jpg" alt="Eduardo Fitness Lógico — asesor online">
+      </div>
+      <div class="testimonials-placeholder" style="margin-top:24px;">
+        <p><strong>Testimonios en construcción.</strong><br>Este espacio está reservado para resultados reales de asesorados. Los primeros cupos ya están abiertos.</p>
+      </div>
+    </div>
+    <div class="authority-bio">
+      <div class="section-eyebrow">Quién está detrás</div>
+      <h2>Eduardo<br>Fitness Lógico</h2>
+      <div class="authority-role">Asesor de entrenamiento y nutrición online</div>
+      <p>Me especializo en ayudar a hombres con vidas exigentes a mejorar su composición corporal con una estrategia clara, personalizada y que funciona en la realidad — no solo en el papel.</p>
+      <p>Mi enfoque combina entrenamiento inteligente, nutrición flexible y seguimiento real. No vendo motivación ni métodos de moda. Trabajo con datos, con contexto y con constancia.</p>
+      <p>Trabajo con un número limitado de asesorados para garantizar seguimiento genuino, ajustes de calidad y atención directa — sin automatizaciones, sin respuestas genéricas.</p>
+      <div class="authority-stats">
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Online</span>
+        </div>
+        <div class="stat">
+          <strong>Real</strong>
+          <span>Seguimiento directo</span>
+        </div>
+        <div class="stat">
+          <strong>Serio</strong>
+          <span>Sin atajos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-eyebrow">Preguntas frecuentes</div>
+      <h2 class="section-title">Lo que necesitas saber antes de empezar.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">¿Esto sirve si tengo muy poco tiempo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sí, de hecho es exactamente para eso. Diseñamos entrenamientos eficientes que se ajustan al tiempo real que tienes disponible. No se trata de horas en el gym — se trata de calidad, estructura y coherencia con tu agenda.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Se adapta a horarios rotativos o turnos de trabajo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Completamente. La asesoría está diseñada considerando que muchos hombres trabajan en turnos, con horarios cambiantes o exigentes. Analizamos tu esquema real y construimos el plan en función de eso, no al revés.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito gimnasio o se puede ajustar a entrenar en casa?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>El plan se adapta al equipamiento que tienes disponible — gimnasio completo, equipamiento básico en casa, o cualquier combinación. Lo que importa es tener un plan coherente con tu realidad, no con un escenario ideal.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿La asesoría incluye nutrición también?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sí, el plan incluye una guía nutricional flexible adaptada a tu contexto. No es una dieta de calorías exactas ni alimentos prohibidos — es una estrategia práctica y sostenible que puedes aplicar en tu día a día real.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo se realiza el seguimiento?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>El seguimiento es directo por WhatsApp. Revisamos tu progreso de forma periódica, ajustamos variables cuando corresponde y mantenemos comunicación activa para que el proceso funcione y no se estanque.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuándo se empiezan a notar los primeros resultados?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Los primeros cambios en cómo te sientes — energía, rendimiento, estructura mental — generalmente se perciben en las primeras semanas. Los cambios físicos visibles dependen de tu punto de partida, constancia y adherencia. Este es un proceso serio, no un sprint.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Es para principiantes o también para personas con experiencia?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Para ambos. El plan se diseña según tu nivel real de entrenamiento y tu historial. Ya seas alguien que empieza desde cero o alguien con años de experiencia que no está progresando como debería, el enfoque se ajusta a tu situación.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo empiezo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Escríbeme por WhatsApp para agendar una evaluación inicial. En esa primera conversación analizamos tu contexto, vemos si la asesoría tiene sentido para ti, y definimos cómo avanzar. Sin compromisos desde el primer mensaje.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <div class="section-eyebrow" style="justify-content:center;">
+      <span style="display:flex;align-items:center;gap:8px;margin:0 auto 16px;">
+        <span style="width:24px;height:1px;background:var(--accent);display:block;"></span>
+        Cupos limitados
+        <span style="width:24px;height:1px;background:var(--accent);display:block;"></span>
+      </span>
+    </div>
+    <h2>Reserva tu evaluación y ve si este sistema encaja contigo.</h2>
+    <p>Trabajo con un número reducido de asesorados para garantizar seguimiento real y ajustes de calidad. Cuando los cupos se llenan, no hay más ingresos.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa." class="btn-primary" style="font-size:0.88rem;padding:15px 28px;">Agendar por WhatsApp</a>
+      <a href="mailto:edu.fitnesslogico@gmail.com" class="btn-secondary" style="font-size:0.88rem;padding:15px 28px;">Enviar un email</a>
+    </div>
+    <div class="cta-trust">Te respondo personalmente para ver si este sistema es para ti.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Fitness<span>Lógico</span></div>
+      <p>Asesoría estratégica de entrenamiento y nutrición para hombres ocupados. Sin métodos genéricos. Sin atajos.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul class="footer-links">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#incluye">Qué incluye</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa.">WhatsApp</a></li>
+        <li><a href="mailto:edu.fitnesslogico@gmail.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociales</h4>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/edu.fitness.logico" target="_blank">Instagram</a></li>
+        <li><a href="https://tiktok.com/@edu.fitness.logico" target="_blank">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Fitness Lógico. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="#">Términos y condiciones</a>
+      <a href="#">Política de privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE -->
+<div class="sticky-mobile">
+  <a href="https://wa.me/56953361953?text=Hola%2C+quiero+agendar+una+evaluaci%C3%B3n+para+conocer+tu+asesor%C3%ADa.">Agendar evaluación por WhatsApp</a>
+</div>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Header background on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.style.background = 'rgba(10,13,18,0.98)';
+    } else {
+      header.style.background = 'rgba(10,13,18,0.92)';
+    }
+  });
+
+  // Smooth reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.benefit-item, .method-pillar, .step, .include-item, .forwhom-col').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
