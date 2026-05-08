@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitness Lógico — Asesoría online de transformación física para hombres ocupados</title>
-<meta name="description" content="Asesoría online personalizada para hombres con vidas exigentes. Sistema de entrenamiento, nutrición y hábitos diseñado para tu agenda real. Sin métodos genéricos.">
-<meta property="og:title" content="Fitness Lógico — Asesoría online de transformación física">
-<meta property="og:description" content="Sistema personalizado para hombres ocupados que se cansaron de improvisar.">
+<title>Fitness Lógico — Coaching de transformación física para profesionales ocupados</title>
+<meta name="description" content="Coaching online personalizado para profesionales con vidas exigentes. Sistema de entrenamiento, nutrición y hábitos diseñado para tu agenda real. Sin métodos genéricos.">
+<meta property="og:title" content="Fitness Lógico — Coaching de transformación física">
+<meta property="og:description" content="Sistema personalizado para profesionales ocupados que se cansaron de improvisar.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,6 @@ body {
   position: relative;
 }
 
-/* Noise texture overlay for editorial feel */
 body::before {
   content: "";
   position: fixed;
@@ -161,8 +160,13 @@ section {
   font-weight: 400;
   letter-spacing: -0.01em;
   display: flex;
-  align-items: baseline;
-  gap: 2px;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-svg {
+  flex-shrink: 0;
+  margin-right: 2px;
 }
 
 .logo-mark {
@@ -263,6 +267,16 @@ section {
 .hero h1 .accent {
   font-style: italic;
   color: var(--accent);
+}
+
+.hero h1 .accent-animated {
+  font-style: italic;
+  background: linear-gradient(90deg, #4A6CFF, #7B9FFF, #4A6CFF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShimmer 3s linear infinite;
 }
 
 .hero h1 .number {
@@ -381,6 +395,7 @@ section {
   overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border);
+  animation: float 6s ease-in-out infinite;
 }
 
 .hero-image-wrap::after {
@@ -430,6 +445,17 @@ section {
   50% { opacity: 0.4; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* ============ SECTION HEADERS ============ */
 .section-header {
   max-width: 800px;
@@ -463,6 +489,22 @@ section {
   line-height: 1.65;
   color: var(--fg-muted);
   max-width: 600px;
+}
+
+/* Method name badge */
+.method-name {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(74, 108, 255, 0.3);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-top: 14px;
+  margin-bottom: 4px;
 }
 
 /* ============ PROBLEM SECTION ============ */
@@ -1092,6 +1134,16 @@ section {
   max-width: 680px;
 }
 
+.faq-answer-inner a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.faq-answer-inner a:hover {
+  color: var(--fg);
+}
+
 /* ============ FINAL CTA ============ */
 .final-cta-section {
   background: var(--bg);
@@ -1255,6 +1307,11 @@ section {
   <div class="container">
     <div class="header-inner">
       <a href="#" class="logo">
+        <svg class="logo-svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="2" width="3" height="16" rx="1.2" fill="#4A6CFF"/>
+          <rect x="3" y="2" width="13" height="3" rx="1.2" fill="#4A6CFF"/>
+          <rect x="3" y="9" width="9" height="3" rx="1.2" fill="#4A6CFF"/>
+        </svg>
         <span class="logo-mark">Fitness</span><span class="logo-accent">Lógico</span>
       </a>
       <nav class="nav">
@@ -1273,17 +1330,17 @@ section {
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="eyebrow fade-up">Asesoría online · Hombres ocupados 35+</div>
+        <div class="eyebrow fade-up">Coaching online · Profesionales ocupados</div>
         <h1 class="fade-up stagger-1">
-          A los <span class="accent">44</span> reconstruí mi cuerpo después de <span class="accent">20 kilos</span>, una pandemia y la minería.
+          Reconstruí mi cuerpo después de <span class="accent-animated">20 kilos</span>, una pandemia y la minería.
           <br><br>
           <span class="display-italic" style="color: var(--fg-muted); font-size: 0.85em;">Ahora te enseño el sistema.</span>
         </h1>
         <p class="hero-sub fade-up stagger-2">
-          Asesoría online de transformación física para hombres ocupados que ya intentaron solos y se cansaron de improvisar. Sistema personalizado, seguimiento real, sin dietas extremas ni rutinas imposibles.
+          Coaching online de transformación física para profesionales que ya intentaron solos y se cansaron de improvisar. Sistema personalizado, seguimiento real, sin dietas extremas ni rutinas imposibles.
         </p>
         <ul class="hero-bullets fade-up stagger-3">
-          <li>Plan adaptado a tu agenda, turno y contexto real</li>
+          <li>Plan adaptado a tu agenda, horario y contexto real</li>
           <li>Seguimiento directo conmigo, no con un asistente</li>
           <li>Estructura clara de entrenamiento, nutrición y hábitos</li>
         </ul>
@@ -1309,7 +1366,7 @@ section {
     <div class="section-header fade-up">
       <div class="eyebrow">El problema real</div>
       <h2 class="section-title">No necesitas más motivación. Necesitas una <em>estrategia</em> que encaje con tu vida.</h2>
-      <p class="section-intro">La mayoría de planes están diseñados para atletas o influencers — no para hombres con trabajo exigente, turnos rotativos o poco tiempo. El resultado siempre es el mismo: empiezas bien, en semanas el sistema se rompe, y terminas peor que antes.</p>
+      <p class="section-intro">La mayoría de planes están diseñados para atletas o influencers — no para profesionales con trabajo exigente, horarios complejos o poco tiempo. El resultado siempre es el mismo: empiezas bien, en semanas el sistema se rompe, y terminas peor que antes.</p>
     </div>
     <div class="problem-grid">
       <div class="problem-item fade-up">
@@ -1337,6 +1394,7 @@ section {
   <div class="container">
     <div class="section-header fade-up">
       <div class="eyebrow">El método</div>
+      <div class="method-name">Proyecto Fitness Lógico</div>
       <h2 class="section-title">Cuatro pilares. <em>Un sistema.</em></h2>
       <p class="section-intro">No es entrenamiento aislado. Es un sistema integral diseñado para sostenerse con tu vida real.</p>
     </div>
@@ -1375,13 +1433,13 @@ section {
       <div class="about-content">
         <div class="eyebrow fade-up">Quién está detrás</div>
         <h2 class="about-headline fade-up stagger-1">
-          Soy Eduardo. Tengo <em>45 años.</em> Y no siempre tuve este físico.
+          Soy Eduardo. Y no siempre tuve este físico.
         </h2>
         <p class="about-text fade-up stagger-2">
           Vine de Brasil a Chile a los 20 y tantos con una propuesta de baile que nunca se concretó. Sobreviví bailando en discotecas y dictando clases de baile en gimnasios — spinning, body pump, lo que saliera. La carrera de Educación Física que había empezado en Brasil quedó incompleta.
         </p>
         <p class="about-text fade-up stagger-2">
-          En 2014 empecé como instructor de sala de fuerza. Ahí descubrí que la gente confiaba en mí. Mineros, profesionales, hombres con vidas exigentes me empezaron a contratar como personal trainer. Empecé con uno. Después llegaron solos. Tuve cartera completa durante años.
+          En 2014 empecé como instructor de sala de fuerza. Ahí descubrí que la gente confiaba en mí. Mineros, profesionales, personas con vidas exigentes me empezaron a contratar como personal trainer. Empecé con uno. Después llegaron solos. Tuve cartera completa durante años.
         </p>
         <p class="about-text fade-up stagger-2">
           <strong>Y entonces vino la pandemia.</strong>
@@ -1399,10 +1457,10 @@ section {
           Los cambios fueron brutales. En meses recuperé el cuerpo que pensaba perdido. Amigos y conocidos empezaron a preguntarme qué estaba haciendo. Tres personas, sin que yo vendiera nada, me preguntaron si daba asesoría. <strong>Ahí entendí que tenía algo que enseñar.</strong>
         </p>
         <div class="about-quote fade-up stagger-3">
-          <p>Fitness Lógico nació de eso. No de un curso. De mi propia caída y mi propia reconstrucción a los 44.</p>
+          <p>Fitness Lógico nació de eso. No de un curso. De mi propia caída y mi propia reconstrucción.</p>
         </div>
         <p class="about-text fade-up stagger-3">
-          Trabajo online porque mi turno minero 7×7 no me deja hacerlo presencial. Trabajo con pocos clientes porque quiero entregar atención real. Y trabajo específicamente con hombres ocupados, con vidas exigentes, porque entiendo cómo se siente perder el control del cuerpo cuando todo lo demás también te exige.
+          Trabajo online porque mi turno minero 7×7 no me deja hacerlo presencial. Trabajo con pocos clientes porque quiero entregar atención real. Y trabajo específicamente con profesionales ocupados porque entiendo cómo se siente perder el control del cuerpo cuando todo lo demás también te exige.
         </p>
         <p class="about-text fade-up stagger-3">
           <strong>No vendo motivación. Vendo el sistema que a mí me funcionó cuando lo demás falló.</strong>
@@ -1519,19 +1577,19 @@ section {
     <div class="founder-card fade-up">
       <div class="founder-badge"><span class="dot"></span>Programa Fundador · Cupos limitados</div>
       <h2 class="founder-title">Las primeras <em>cinco plazas</em> abiertas.</h2>
-      <p class="founder-sub">El Programa Fundador es la primera generación de Fitness Lógico. Solo 5 hombres acceden a esta versión, a condiciones únicas que no se repetirán.</p>
+      <p class="founder-sub">El Programa Fundador es la primera generación de Fitness Lógico. Solo 5 personas acceden a esta versión, a condiciones únicas que no se repetirán.</p>
 
       <div class="founder-meta">
         <div class="founder-meta-item">
-          <div class="founder-meta-num">5</div>
+          <div class="founder-meta-num" data-target="5">5</div>
           <div class="founder-meta-label">Plazas únicas</div>
         </div>
         <div class="founder-meta-item">
-          <div class="founder-meta-num">90</div>
+          <div class="founder-meta-num" data-target="90">90</div>
           <div class="founder-meta-label">Días de proceso</div>
         </div>
         <div class="founder-meta-item">
-          <div class="founder-meta-num">1:1</div>
+          <div class="founder-meta-num" data-target="ratio">1:1</div>
           <div class="founder-meta-label">Atención directa</div>
         </div>
       </div>
@@ -1573,7 +1631,7 @@ section {
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Completamente. La asesoría está diseñada considerando que muchos hombres trabajan en turnos rotativos, horarios cambiantes o jornadas largas. Yo mismo trabajo en minería 7×7. Analizamos tu esquema real y construimos el plan en función de eso, no al revés.
+            Completamente. La asesoría está diseñada considerando que muchos profesionales trabajan en turnos rotativos, horarios cambiantes o jornadas largas. Yo mismo trabajo en minería 7×7. Analizamos tu esquema real y construimos el plan en función de eso, no al revés.
           </div>
         </div>
       </div>
@@ -1617,7 +1675,7 @@ section {
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Escríbeme por WhatsApp y agendamos una conversación inicial de 15 minutos. En esa primera llamada analizamos tu contexto, vemos si tiene sentido para ti, y definimos cómo avanzar. Sin compromisos desde el primer mensaje.
+            Tenés dos opciones: escribime por <a href="https://wa.me/56953361953?text=Hola%2C+quiero+postular+a+una+plaza+del+Programa+Fundador." target="_blank" rel="noopener">WhatsApp</a> o agendar directamente una llamada de 15 minutos en <a href="https://calendly.com/contacto-edufitlogico" target="_blank" rel="noopener">Calendly</a>. En esa primera conversación analizamos tu contexto, vemos si tiene sentido para ti, y definimos cómo avanzar. Sin compromisos desde el primer mensaje.
           </div>
         </div>
       </div>
@@ -1653,9 +1711,14 @@ section {
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo">
+          <svg class="logo-svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="2" width="3" height="16" rx="1.2" fill="#4A6CFF"/>
+            <rect x="3" y="2" width="13" height="3" rx="1.2" fill="#4A6CFF"/>
+            <rect x="3" y="9" width="9" height="3" rx="1.2" fill="#4A6CFF"/>
+          </svg>
           <span class="logo-mark">Fitness</span><span class="logo-accent">Lógico</span>
         </a>
-        <p>Asesoría estratégica de entrenamiento y nutrición para hombres ocupados. Sin métodos genéricos. Sin atajos.</p>
+        <p>Coaching estratégico de entrenamiento y nutrición para profesionales. Sin métodos genéricos. Sin atajos.</p>
       </div>
       <div class="footer-col">
         <h5>Navegación</h5>
@@ -1671,6 +1734,7 @@ section {
         <ul>
           <li><a href="https://wa.me/56953361953" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="mailto:contacto.edufitlogico@gmail.com">Email</a></li>
+          <li><a href="https://calendly.com/contacto-edufitlogico" target="_blank" rel="noopener">Calendly</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1683,7 +1747,7 @@ section {
     </div>
     <div class="footer-bottom">
       <div>© 2026 Fitness Lógico. Todos los derechos reservados.</div>
-      <div>Calama, Chile</div>
+      <div>Chile · Online</div>
     </div>
   </div>
 </footer>
@@ -1738,6 +1802,42 @@ document.querySelectorAll('.faq-question').forEach(button => {
     }
   });
 });
+
+// Counter animation for founder stats
+function animateCounter(el, target, duration) {
+  const start = 0;
+  const steps = duration / 16;
+  const increment = target / steps;
+  let current = start;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.round(current);
+  }, 16);
+}
+
+const founderObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.founder-meta-num[data-target]');
+      counters.forEach(counter => {
+        const target = counter.getAttribute('data-target');
+        if (target === 'ratio') return;
+        const num = parseInt(target);
+        counter.textContent = '0';
+        animateCounter(counter, num, 900);
+      });
+      founderObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.6 });
+
+const founderMeta = document.querySelector('.founder-meta');
+if (founderMeta) founderObserver.observe(founderMeta);
 </script>
 
 </body>
