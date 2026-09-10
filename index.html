@@ -733,6 +733,61 @@ section {
   letter-spacing: -0.01em;
 }
 
+/* ============ TRANSFORM COMPARE ============ */
+.transform-block { margin-top: 40px !important; }
+.transform-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.transform-img-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.transform-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(0.9);
+}
+.transform-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 2;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-strong);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.transform-tag.accent {
+  border-color: rgba(74, 108, 255, 0.4);
+  color: var(--accent);
+}
+.transform-caption {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--fg-muted);
+  letter-spacing: -0.01em;
+}
+.transform-caption em { font-style: italic; color: var(--accent); }
+@media (max-width: 480px) {
+  .transform-images { gap: 10px; }
+}
+
 /* ============ INCLUDES SECTION ============ */
 .includes-section { background: var(--bg); }
 
@@ -1456,6 +1511,19 @@ section {
         <p class="about-text fade-up stagger-2">
           Los cambios fueron brutales. En meses recuperé el cuerpo que pensaba perdido. Amigos y conocidos empezaron a preguntarme qué estaba haciendo. Tres personas, sin que yo vendiera nada, me preguntaron si daba asesoría. <strong>Ahí entendí que tenía algo que enseñar.</strong>
         </p>
+        <div class="transform-block fade-up stagger-3">
+          <div class="transform-images">
+            <div class="transform-img-wrap">
+              <img src="eduardo-antes.jpg" alt="Eduardo antes — con 20 kilos de sobrepeso tras la pandemia">
+              <span class="transform-tag">Antes</span>
+            </div>
+            <div class="transform-img-wrap">
+              <img src="eduardo-despues.jpg" alt="Eduardo después — transformación física a los 45 años">
+              <span class="transform-tag accent">Después</span>
+            </div>
+          </div>
+          <p class="transform-caption">Este cambio lo hice <em>a los 45 años</em>. La transformación no tiene fecha de vencimiento — no es solo para los veinte.</p>
+        </div>
         <div class="about-quote fade-up stagger-3">
           <p>Fitness Lógico nació de eso. No de un curso. De mi propia caída y mi propia reconstrucción.</p>
         </div>
