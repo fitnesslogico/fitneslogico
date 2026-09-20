@@ -292,6 +292,16 @@ section {
   max-width: 520px;
 }
 
+.hero-tagline {
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--fg);
+  max-width: 520px;
+}
+.hero-tagline em { font-style: italic; color: var(--accent); }
+
 .hero-bullets {
   list-style: none;
   display: flex;
@@ -506,6 +516,39 @@ section {
   margin-top: 14px;
   margin-bottom: 4px;
 }
+
+/* ============ REELS SECTION ============ */
+.reels-section { background: var(--bg); }
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+@media (max-width: 900px) { .reels-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .reels-grid { grid-template-columns: 1fr; } }
+.reel-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px 20px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.reel-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.reel-icon {
+  width: 36px; height: 36px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(74,108,255,0.3);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+.reel-title { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--fg); line-height: 1.3; margin-bottom: 8px; }
+.reel-stat { font-family: var(--mono); font-size: 11.5px; color: var(--fg-muted); line-height: 1.4; margin-bottom: 16px; }
+.reel-link { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--accent); }
 
 /* ============ PROBLEM SECTION ============ */
 .problem-section {
@@ -1455,10 +1498,12 @@ section {
         <span class="logo-mark">Fitness</span><span class="logo-accent">Lógico</span>
       </a>
       <nav class="nav">
+        <a href="#contenido">Contenido</a>
         <a href="#metodo">Método</a>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#programa">Programa</a>
         <a href="#calculadora">Calculadora</a>
+        <a href="reto.html">Reto gratis</a>
         <a href="#faq">FAQ</a>
       </nav>
       <a href="https://wa.me/56953361953?text=Hola%2C+quiero+conocer+el+Programa+L%C3%B3gica+90" class="btn-header" target="_blank" rel="noopener">Postula</a>
@@ -1480,6 +1525,7 @@ section {
         <p class="hero-sub fade-up stagger-2">
           Coaching online de transformación física para profesionales que ya intentaron solos y se cansaron de improvisar. Sistema personalizado, seguimiento real, sin dietas extremas ni rutinas imposibles.
         </p>
+        <p class="hero-tagline fade-up stagger-2">No soy influencer fitness — soy <em>lógica aplicada</em>.</p>
         <ul class="hero-bullets fade-up stagger-3">
           <li>Plan adaptado a tu agenda, horario y contexto real</li>
           <li>Seguimiento directo conmigo, no con un asistente</li>
@@ -1497,6 +1543,43 @@ section {
         <img src="https://fitnesslogico.com/lv_0_20260330122702.jpg" alt="Eduardo — Coach Fitness Lógico">
         <div class="hero-image-tag"><span class="dot"></span>Cupos abiertos</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO REAL (REELS) -->
+<section class="reels-section" id="contenido">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="eyebrow">Contenido real, no promesas</div>
+      <h2 class="section-title">No es teoría. <em>Es lo que ya funciona</em> en mi Instagram.</h2>
+      <p class="section-intro">Antes de venderte nada, mira el contenido que ya validó esta lógica con cientos de miles de personas reales. Sin testimonios inventados — solo tus propios ojos y mis métricas verificadas.</p>
+    </div>
+    <div class="reels-grid">
+      <a class="reel-card fade-up" href="https://www.instagram.com/reel/DcSAdvjuICh/" target="_blank" rel="noopener">
+        <div class="reel-icon">▶</div>
+        <h3 class="reel-title">Coca-Cola vs Zero — ¿qué cambia?</h3>
+        <p class="reel-stat">2.18M de alcance · 172.687 interacciones reales</p>
+        <span class="reel-link">Ver en Instagram →</span>
+      </a>
+      <a class="reel-card fade-up stagger-1" href="https://www.instagram.com/reel/Dc9nDf4OQKL/" target="_blank" rel="noopener">
+        <div class="reel-icon">▶</div>
+        <h3 class="reel-title">Alimentos que sacian vs. dan hambre</h3>
+        <p class="reel-stat">533.976 de alcance</p>
+        <span class="reel-link">Ver en Instagram →</span>
+      </a>
+      <a class="reel-card fade-up stagger-2" href="https://www.instagram.com/reel/Db__OM3OemT/" target="_blank" rel="noopener">
+        <div class="reel-icon">▶</div>
+        <h3 class="reel-title">11 alimentos pre y post-entreno</h3>
+        <p class="reel-stat">187.406 de alcance · el más guardado de la cuenta</p>
+        <span class="reel-link">Ver en Instagram →</span>
+      </a>
+      <a class="reel-card fade-up stagger-3" href="https://www.instagram.com/reel/Dcmi4CYuHUF/" target="_blank" rel="noopener">
+        <div class="reel-icon">▶</div>
+        <h3 class="reel-title">Pan proteico</h3>
+        <p class="reel-stat">Míralo en Instagram</p>
+        <span class="reel-link">Ver en Instagram →</span>
+      </a>
     </div>
   </div>
 </section>
