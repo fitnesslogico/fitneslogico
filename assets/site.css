@@ -80,9 +80,12 @@ button, a, summary { -webkit-tap-highlight-color: transparent; }
 .hero-copy { position: relative; z-index: 2; width: 61%; padding: 55px 0 60px; }
 .hero h1 { margin-bottom: 25px; font-size: clamp(60px, 6.35vw, 91px); line-height: .96; letter-spacing: -.02em; }
 .hero h1 > span { display: block; }
+.hero h1 > .metal-text { text-wrap: balance; }
 .hero h1 > span:nth-child(2) { color: #729fff; }
 .hero h1 small { display: block; font-size: .37em; margin-top: 17px; line-height: 1.12; letter-spacing: .012em; color: #c2cee0; }
 .hero .intro { font-size: 16px; line-height: 1.75; max-width: 450px; margin-bottom: 28px; }
+.hero .hero-highlights { max-width: 450px; }
+.hero .hero-highlights li { padding-top: 5px; padding-bottom: 5px; border-bottom: 0; }
 .actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .hero-price { display: flex; flex-direction: column; gap: 2px; margin: 24px 0 0; font-size: 13px; }
 .hero-price strong { color: #e1e9f7; font-weight: 600; }
@@ -112,6 +115,7 @@ button, a, summary { -webkit-tap-highlight-color: transparent; }
 .goal-labels { display: flex; gap: 9px; flex-wrap: wrap; margin: 0 0 36px; }
 .goal-labels span { padding: 7px 13px; border: 1px solid #38445a; border-radius: 2px; font-size: 11px; color: #b4c7e7; letter-spacing: .03em; }
 .three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.program-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .pillar { display: flex; flex-direction: column; padding: 30px; background: linear-gradient(150deg, #172131, #10141b 65%); border: 1px solid var(--line); border-radius: 3px; }
 .index { display: flex; justify-content: space-between; align-items: center; font: 800 27px/1 var(--display); color: #668bcf; margin-bottom: 32px; }
 .index > span { color: #8e9fb9; font: 22px/1 Arial, sans-serif; }
@@ -137,6 +141,10 @@ button, a, summary { -webkit-tap-highlight-color: transparent; }
 .about-photo-label { position: absolute; bottom: 32px; left: 32px; right: 12px; color: white; font-size: 9px; letter-spacing: .14em; background: #0b1422e8; padding: 13px; border-left: 2px solid var(--accent); }
 .coach-signature { color: #d9e4f5; font-family: var(--display); font-size: 25px; margin-top: 28px; }
 .coach-signature span { display: block; font: 9px/1.7 Arial, sans-serif; letter-spacing: .16em; color: #91a7cb; margin-top: 4px; }
+.transformation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); max-width: 880px; margin: 40px auto 0; }
+.transformation figure { margin: 0; }
+.transformation figcaption { margin: 0 0 10px; }
+.transformation img { width: 100%; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); }
 #condiciones { background: linear-gradient(140deg, #0d1727, #0a0c10 70%); }
 .price-panel { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; padding: 50px; background: radial-gradient(ellipse at 0 0, #193c78, #111b2b 48%, #10151f); border: 1px solid #425e8d; border-radius: 4px; }
 .price-panel h2 { font-size: 60px; }
@@ -145,6 +153,7 @@ button, a, summary { -webkit-tap-highlight-color: transparent; }
 .price-panel > div:first-child > p:not(.eyebrow):not(.price-value):not(.micro) { font-size: 14px; }
 .price-value { font: 800 65px/1.1 var(--display); color: white; letter-spacing: -.02em; margin-bottom: 8px; }
 .price-value span { font: 15px/1 Arial, sans-serif; letter-spacing: .03em; }
+.price-market .price-value { display: block; margin-bottom: 0; }
 .price-panel .primary { margin-top: 6px; }
 .price-panel .micro { max-width: 280px; font-size: 11px; }
 .price-panel > div:last-child > p { font-size: 13px; }
@@ -230,6 +239,9 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--er
   .hero-stage { min-height: 790px; }
   .hero h1 { font-size: 98px; }
 }
+@media (min-width: 1200px) {
+  .program-pillars { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 @media (max-width: 1100px) {
   .desktop-nav { gap: 17px; }
   .container { padding-left: 28px; padding-right: 28px; }
@@ -286,8 +298,8 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--er
   .hero h1 { font-size: clamp(46px, 12.5vw, 76px); line-height: .98; margin-bottom: 20px; }
   .hero h1 small { font-size: .43em; margin-top: 12px; }
   .hero .intro { max-width: 440px; font-size: 14px; line-height: 1.75; margin-bottom: 22px; }
-  .hero .actions { display: block; }
-  .hero .primary { width: 100%; justify-content: space-between; }
+  .hero .actions { display: grid; }
+  .hero .actions .button { width: 100%; justify-content: space-between; }
   .hero-price { flex-direction: row; justify-content: space-between; gap: 12px; font-size: 10px; margin-top: 17px; }
   .hero-photo { position: relative; right: auto; bottom: auto; width: 100%; height: 450px; margin: 12px auto 0; }
   .hero-photo > img { object-position: center bottom; }
